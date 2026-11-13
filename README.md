@@ -32,6 +32,18 @@ APK 不能提交普通 Git（单文件超过 100 MB）。也不适合 Cloudflare
 
 **目前 `published:false` 是明确的防误导状态。未上传 APK 时下载页会显示“安装包待发布”，不会把用户导向虚假的可用下载。**
 
+## Cloudflare Workers（现有项目可继续用）
+
+仓库已提供 `wrangler.jsonc`，明确配置 `assets.directory: "./site"`，直接发布已构建的静态文件，无需 Cloudflare 自动推断 Vite。
+
+- Worker 名称：`wechat-carassistant`
+- Build command：留空
+- Deploy command：`npx wrangler deploy`
+- Root directory：`/`
+- 生产分支：`feature/official-download-site`
+
+不要把根目录改为 `/site`，因为 Wrangler 配置在仓库根目录。Workers 界面没有 Pages 的“输出目录”字段，该目录由仓库配置定义。上线后二维码自动使用实际 workers.dev 或自定义域名。
+
 ## 推荐部署：Cloudflare Pages
 不需要 Supabase，也不需要 Render 后端。
 
