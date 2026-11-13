@@ -1,0 +1,13 @@
+node_modules/
+.trash/
+.DS_Store
+.env*
+*.apk
+*.aab
+*.jks
+*.keystore
+*.pem
+*.p12
+*.log
+# Generated build output is deliberately committed under site/ for no-build static hosting.
+dist/
