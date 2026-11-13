@@ -39,7 +39,7 @@ APK 不能提交普通 Git（单文件超过 100 MB）。也不适合 Cloudflare
 2. Cloudflare → Workers & Pages → 创建 Pages 项目 → 连接 GitHub → 选择本仓库。
 3. 生产分支选包含官网的分支；框架预设 `None`；构建命令留空；输出目录 `site`。
 4. 部署完成后先测试 `https://实际项目名.pages.dev/` 与 `/download.html`。
-5. 更改二维码指向实际下载页：`npm run qr -- https://实际项目名.pages.dev/download.html`，重新构建并更新 `site/`。
+5. 二维码在浏览器中自动指向当前站点的 `/download.html`，无需手动修改即可使用新域名。`npm run qr -- https://实际项目名.pages.dev/download.html` 仅用于更新静态兜底二维码。
 
 ## 挂自己的域名
 
@@ -50,10 +50,10 @@ APK 不能提交普通 Git（单文件超过 100 MB）。也不适合 Cloudflare
 2. 等状态为 Active（不要猜 NS 值）。
 3. Pages 项目 → Custom domains → Set up a custom domain → 输入 `example.com`，让向导创建 DNS 记录。
 4. HTTPS 证书激活后，测试主页、download.html、privacy.html。
-5. 更新二维码：`npm run qr -- https://example.com/download.html`；重新 build 并更新 `site/`。
+5. 页面二维码会自动使用当前域名。可选更新静态兜底图：`npm run qr -- https://example.com/download.html`，再构建更新 `site/`。
 
 ### 子域名（例如 app.example.com）
-可以保留外部 DNS。先在 Pages 的 Custom domains 添加该子域名，再在当前 DNS 服务商按向导添加 CNAME，目标为项目真实的 `xxx.pages.dev`。不要仅加 DNS 而跳过 Pages 域名绑定。HTTPS 就绪后更新二维码。
+可以保留外部 DNS。先在 Pages 的 Custom domains 添加该子域名，再在当前 DNS 服务商按向导添加 CNAME，目标为项目真实的 `xxx.pages.dev`。不要仅加 DNS 而跳过 Pages 域名绑定。HTTPS 就绪后，页面二维码自动使用访问域名；静态兜底二维码可选更新。
 
 官网与 APK 不需要同源。自定义域名改变的是网页地址，GitHub Release 下载链接可以不变。
 
@@ -61,7 +61,7 @@ APK 不能提交普通 Git（单文件超过 100 MB）。也不适合 Cloudflare
 New → Static Site → GitHub 仓库；Build Command 留空；Publish Directory `site`；添加 Custom Domain 后按 Render 显示的 DNS 记录配置。不要为此新建收费 Web Service。
 
 ## 无需 GitHub Pages 的提醒
-初版二维码预置 GitHub Pages 形式地址，只是待启用的计划地址，**不代表已经上线**。如决定使用 GitHub Pages，Settings → Pages → Source 选分支，发布目录可用 `/docs`（需要将 `site` 拷贝为 `docs`）；更推荐上面的 Cloudflare Pages，直接使用 `site` 即可。正式部署后必须重新生成二维码指向真实官网。
+初版静态兜底二维码预置 GitHub Pages 形式地址，只是待启用的计划地址，**不代表已经上线**；实际页面二维码由本地打包的 QRCode 库生成，自动采用当前站点地址。如决定使用 GitHub Pages，Settings → Pages → Source 选分支，发布目录可用 `/docs`（需要将 `site` 拷贝为 `docs`）；更推荐上面的 Cloudflare Pages，直接使用 `site` 即可。正式部署后请扫码确认实际网址和下载流程。
 
 ## 安全与隐私
 不要上传手机截图里的真实联系人、聊天、电话、账号及诊断日志。现有主界面截图进行了微小视觉清理（移除原图内的 emoji），非新的应用 UI。
