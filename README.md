@@ -1,4 +1,7 @@
-# 微信车载语音助手 · 官网
+# 微信车载语音助手（Car Voice Assistant）· 官网
+
+> **官网 / Official Site：https://carassistant.cc.cd/** —— 免费下载 Android APK、查看安装教程与隐私说明。
+> 微信车载语音助手 / 车载微信 / 开车语音聊微信 / car assistant wechat
 
 独立 Android 语音辅助工具的下载官网。非腾讯或微信官方产品。
 
