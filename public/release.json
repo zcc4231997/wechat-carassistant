@@ -11,5 +11,15 @@
   "downloadUrl": "https://github.com/zcc4231997/wechat-carassistant/releases/download/v1.0/app-release.apk",
   "releaseUrl": "https://github.com/zcc4231997/wechat-carassistant/releases/tag/v1.0",
   "siteUrl": "https://zcc4231997.github.io/wechat-carassistant/",
-  "published": true
+  "published": true,
+  "mirrors": [
+    {
+      "label": "线路1 · 国内加速（推荐）",
+      "url": "https://ghfast.top/https://github.com/zcc4231997/wechat-carassistant/releases/download/v1.0/app-release.apk"
+    },
+    {
+      "label": "线路2 · GitHub 原站",
+      "url": "https://github.com/zcc4231997/wechat-carassistant/releases/download/v1.0/app-release.apk"
+    }
+  ]
 }
